@@ -1,7 +1,5 @@
 # creates the docker image
 env:
-	$(MAKE) stop
-	docker rmi diogocorrea_img
 	docker build -t diogocorrea_img .
 
 # run the dev env
