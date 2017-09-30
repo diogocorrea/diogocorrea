@@ -1,16 +1,11 @@
 # creates the docker image
 env:
-	docker build -t diogocorrea_img .
+	docker build -t diogocorrea .
 
 # run the dev env
-dev:
+run:
 	$(MAKE) stop
-	docker run -v $(CURDIR)/html/:/usr/share/nginx/html/ --name diogocorrea -d -p 3000:80 diogocorrea_img
-
-# run the production env
-prod:
-	$(MAKE) stop
-	docker run -v $(CURDIR)/html/:/usr/share/nginx/html/ --name diogocorrea -d -p 80:80 diogocorrea_img
+	docker run -v $(CURDIR)/html/:/usr/share/nginx/html/ --name diogocorrea -d -p 3000:80 diogocorrea
 
 # stop any runnign containers
 stop:
