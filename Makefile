@@ -4,7 +4,7 @@ image:
 
 # run container
 run:
-	docker run -v $(CURDIR)/html/:/usr/share/nginx/html/ --name diogocorrea -d -p 3000:80 diogocorrea
+	docker run -v $(CURDIR)/html/:/usr/share/nginx/html/ --name diogocorrea -d -p 80:80 diogocorrea
 
 # stop container
 stop:
