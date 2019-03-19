@@ -1,2 +1,2 @@
 # diogocorrea
-My personal website http://diogocorrea.com.br
+My personal website https://diogocorrea.dev
