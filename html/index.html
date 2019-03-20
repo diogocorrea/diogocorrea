@@ -8,8 +8,8 @@
 	<link rel="preload" as="font" href="montserrat.woff2" type="font/woff2" crossorigin>
 	<style>
 		@font-face {font-family:'Montserrat'; src:url('montserrat.woff2') format('woff2'), url('montserrat.woff') format('woff'); font-weight:normal; font-style:normal}
-		body, html {height:100%}
-		body {font-family:'Montserrat', sans-serif; text-align:center; background:#fafafa; color:#444; margin:0; display:grid; grid-template-rows:1fr auto 1fr auto; grid-template-areas:"." "header" "." "footer"}
+		body {font-family:'Montserrat', sans-serif; text-align:center; background:#fafafa; color:#444; margin:0; display:grid; grid-template-rows:1fr auto 1fr auto; grid-template-areas:"." "header" "." "footer"; opacity:0; transition:1s opacity; -webkit-transition:1s opacity}
+		.visible {opacity:1}
 		header {grid-area:header}
 		footer {grid-area:footer}
 		h1, h2 {text-transform:uppercase; margin:0; font-weight:normal}
@@ -34,6 +34,15 @@
 		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 		ga('create', 'UA-22076067-1', 'auto');
 		ga('send', 'pageview');
+
+		const body = document.querySelector("body");
+		window.onresize = function() {
+		    body.style.height = `${window.innerHeight}px`;
+		}
+		window.requestAnimationFrame(() => {			
+			window.onresize();
+			body.classList.add("visible")
+		});
 	</script>
 </body>
 </html>
