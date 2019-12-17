@@ -35,7 +35,6 @@
 		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 		ga('create', 'UA-22076067-1', 'auto');
 		ga('send', 'pageview');
-
 		const body = document.querySelector("body");
 		window.onresize = function() {
 		    body.style.height = `${window.innerHeight}px`;
@@ -44,6 +43,18 @@
 			window.onresize();
 			body.classList.add("visible")
 		});
+		if ("serviceWorker" in navigator) {
+				window.addEventListener("load", () => {
+					navigator.serviceWorker.register("/sw.js").then(
+						registration => {
+							console.log("ServiceWorker registration successful with scope: ", registration.scope);
+						},
+						err => {
+							console.log("ServiceWorker registration failed: ", err);
+						}
+					);
+				});
+			}
 	</script>
 </body>
 </html>

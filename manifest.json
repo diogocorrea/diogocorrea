@@ -1,0 +1,10 @@
+{
+	"short_name": "Diogo Corrêa",
+	"name": "Diogo Corrêa Front-end Developer",
+	"description": "Diogo Corrêa - Front-end Developer",
+	"start_url": "/",
+	"scope": "/",
+	"background_color": "#fafafa",
+	"theme_color": "#fafafa",
+	"display": "standalone"
+}
