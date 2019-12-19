@@ -1,7 +1,7 @@
 self.addEventListener("install", event => {
 	event.waitUntil(
 		caches
-			.open("airhorner")
+			.open("diogocorrea")
 			.then(cache =>
 				cache.addAll(["/", "/index.html", "/montserrat.woff2"])
 			)
