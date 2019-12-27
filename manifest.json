@@ -1,6 +1,18 @@
 {
 	"short_name": "Diogo Corrêa",
 	"name": "Diogo Corrêa Front-end Developer",
+	"icons": [
+		{
+			"src": "/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
 	"description": "Diogo Corrêa - Front-end Developer",
 	"start_url": "/",
 	"scope": "/",
