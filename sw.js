@@ -1,7 +1,7 @@
 self.addEventListener("install", event => {
 	event.waitUntil(
 		caches
-			.open("diogocorrea")
+			.open("diogocorrea_v2")
 			.then(cache =>
 				cache.addAll(["/", "/index.html", "/montserrat.woff2"])
 			)
