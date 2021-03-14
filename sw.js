@@ -1,4 +1,4 @@
-const CACHE = "diogocorrea_v1";
+const CACHE = "diogocorrea_v5";
 
 self.addEventListener("install", (event) => {
 	event.waitUntil(
