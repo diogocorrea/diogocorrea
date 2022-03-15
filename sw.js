@@ -1,6 +1,13 @@
-const CACHE = "diogocorrea_v6";
+const CACHE = "diogocorrea_v7";
 
 self.addEventListener("install", (event) => {
+	caches.keys().then((names) => {
+		for (let name of names) {
+			if (name !== CACHE) {
+				caches.delete(name);
+			}
+		}
+	});
 	event.waitUntil(
 		caches
 			.open(CACHE)
