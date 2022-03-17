@@ -1,4 +1,4 @@
-const CACHE = "diogocorrea_v9";
+const CACHE = "diogocorrea_v10";
 
 self.addEventListener("install", (event) => {
 	caches.keys().then((names) => {
