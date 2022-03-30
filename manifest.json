@@ -18,7 +18,7 @@
 	"description": "Diogo Corrêa - Front-end Developer",
 	"start_url": "/",
 	"scope": "/",
-	"background_color": "#1a1f30",
+	"background_color": "#0e2431",
 	"theme_color": "#1a1f30",
 	"display": "standalone"
 }
