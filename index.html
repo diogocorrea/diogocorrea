@@ -16,8 +16,7 @@
 		@font-face {font-family:'Montserrat'; src:url('montserrat.woff2') format('woff2'); font-display:swap; font-weight:normal; font-style:normal}
 		body {
 			font-family:'Montserrat', sans-serif;
-			background:#1a1f30 center center no-repeat;
-			background-image:url("bg.svg"), linear-gradient(to right top, #102142, #0f2a4c, #0d3355, #0a3c5f, #064568, #0f4568, #154667, #1a4667, #213d5c, #253551, #262d46, #25253b);
+			background:#242A35 url("bg.svg") center right no-repeat;
 			background-size:contain;
 			color:#EEFBFF;
 			margin:0;
@@ -25,11 +24,11 @@
 			height:100dvh;
 			display:grid;
 			grid-template-rows:10vmin 1fr auto 10vmin;
-			grid-template-columns:10vmin 1fr auto 10vmin;
+			grid-template-columns:10vmin 1fr 1fr 10vmin;
 			grid-template-areas:
 				". . . ."
-				". . footer ."
-				". header header ."
+				". footer . ."
+				". header . ."
 				". . . .";
 			opacity:0;
 			transition:1s opacity;
@@ -39,17 +38,28 @@
 		}
 		.visible {opacity:1}
 		header {grid-area:header}
-		footer {grid-area:footer; writing-mode:vertical-lr}
-		h1, h2 {text-transform:uppercase; margin:0; font-weight:normal; text-shadow:0 0 10px 10px #1a1f30; line-height:1}
-		h1 {font-size:38px; letter-spacing:1px}
-		h2 {color:#99AEBB; font-size:12px; margin-left:3px}
-		a {color:#EEFBFF; padding:15px; font-size:14px; display:inline-block; position:relative; left:18px; top:-15px}
+		footer {grid-area:footer}
+		h1 {font-size:84px; letter-spacing:1px; text-transform:uppercase; margin:0; font-weight:normal; text-shadow:0 0 10px 10px #1a1f30; line-height:0.9}
+		p {color:#99AEBB; font-size:18px; line-height:1.6; margin:0; padding:1.6em 0 0 0}
+		a {color:#EEFBFF; padding:15px; font-size:14px; display:inline-block; position:relative; left:-15px; top:-15px}
+		@media (max-width:800px) {
+			body {
+				background-position:top center;
+				grid-template-areas:
+				". . . ."
+				". footer footer ."
+				". header header ."
+				". . . .";
+			}
+			h1 {font-size:56px}
+			p {font-size:14px}
+		}
 	</style>
 </head>
 <body>
 	<header>
-		<h2>Senior Frontend Software Engineer</h2>
-		<h1>Diogo Corrêa</h1>
+		<h1>Diogo <br>Corrêa</h1>
+		<p>Passionate about Frontend development and committed to delivering exceptional user experiences, I am Diogo Corrêa, a seasoned professional specializing in creating responsive and interactive web applications using React. With extensive experience in Frontend development, I have worked on large-scale, highly-accessed products for prominent companies in Brazil and the US.</h2>
 	</header>
 	<footer>
 		<a href="https://www.linkedin.com/in/diogodca">LinkedIn</a>
