@@ -3,13 +3,13 @@
 	"name": "Diogo Corrêa Front-end Developer",
 	"icons": [
 		{
-			"src": "/icon-192.png",
+			"src": "/192.png",
 			"type": "image/png",
 			"sizes": "192x192",
 			"purpose": "any maskable"
 		},
 		{
-			"src": "icon-512.png",
+			"src": "/512.png",
 			"type": "image/png",
 			"sizes": "512x512",
 			"purpose": "any maskable"
@@ -18,7 +18,7 @@
 	"description": "Diogo Corrêa - Front-end Developer",
 	"start_url": "/",
 	"scope": "/",
-	"background_color": "#0e2431",
-	"theme_color": "#1a1f30",
+	"background_color": "#242A35",
+	"theme_color": "#242A35",
 	"display": "standalone"
 }
