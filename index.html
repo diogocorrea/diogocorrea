@@ -1,74 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Diogo Corrêa - Senior Frontend Engineer</title>
+	<title>Diogo Corrêa | Frontend Software Development Lead</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Diogo Corrêa - Sernior Frontend Software Engineer">
+	<meta name="description" content="Diogo Corrêa | Frontend Software Development Lead">
 	<meta name="theme-color" content="#1B4163">
-	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="shortcut icon" href="/favicon.svg">
 	<link rel="manifest" href="/manifest.json">
-	<link rel="preload" as="font" href="montserrat.woff2" type="font/woff2" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400,600&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://www.google-analytics.com">
 	<link rel="canonical" href="https://diogocorrea.dev">
-	<link rel="apple-touch-icon" sizes="192x192" href="/192.png">
 	<style>
-		@font-face {font-family:'Montserrat'; src:url('montserrat.woff2') format('woff2'); font-display:swap; font-weight:normal; font-style:normal}
-		body {
-			font-family:'Montserrat', sans-serif;
-			background:#1B4163 url("bg.svg") center right no-repeat;
-			background-size:contain;
-			color:#EEFBFF;
-			margin:0;
-			height:100vh;
-			height:100dvh;
-			display:grid;
-			grid-template-rows:10vmin 1fr auto 10vmin;
-			grid-template-columns:10vmin 1fr 1fr 10vmin;
-			grid-template-areas:
-				". . . ."
-				". footer . ."
-				". header . ."
-				". . . .";
-			opacity:0;
-			transition:1s opacity;
-			-webkit-transition:1s opacity;
-			-webkit-font-smoothing:antialiased;
-			font-smoothing:antialiased;
+		html {
+			font-family: "Work Sans", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-style: normal;
+			background: #EFF0EB;
+			color: #1a1c20;
+			-webkit-font-smoothing: antialiased;
+			font-smoothing: antialiased;
 		}
-		.visible {opacity:1}
-		header {grid-area:header; display:flex; flex-direction:column-reverse}
-		footer {grid-area:footer}
-		h1 {font-size:84px; letter-spacing:1px; text-transform:uppercase; margin:0; font-weight:normal; text-shadow:0 0 10px 10px #1a1f30; line-height:0.9}
-		h2 {color:#99AEBB; font-size:18px; line-height:1; margin:0 0 0 .5em; letter-spacing: 1.6px}
-		a {color:#EEFBFF; padding:15px; font-size:14px; display:inline-block; position:relative; left:-15px; top:-15px}
-		@media (max-width:800px) {
-			body {
-				background-position:center center;
-				grid-template-areas:
-				". . . ."
-				". footer footer ."
-				". header header ."
-				". . . .";
-			}
-			h1 {font-size:56px}
-			h2 {font-size:14px; letter-spacing:0}
+		body {
+			height: 100vh;
+			height: 100dvh;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		img {
+			display: block;
+			width: 250px;
+			height: 250px;
+			margin: 30px auto;
+		}
+		nav {
+			text-align: center;
+		}
+		a {
+			font-size: 16px;
+			text-decoration: underline;
+			padding: 15px;
+			color: #2D474F;
+		}
+		main {
+			padding: 50px;
+			margin: 0 auto;
+			max-width: 1000px
+		}
+		h1 {
+			font-size: 42px;
+			font-weight: 600;
+			line-height: 1.5;
+		}
+		p {
+			font-size: 20px;
+			line-height: 1.5;
 		}
 	</style>
 </head>
 <body>
 	<header>
-		<h1>Diogo <br>Corrêa</h1>
-		<h2>Senior Frontend Engineer</h2>
+		<img alt="" src="bg.svg" width="250" height="250" />
+		<nav>
+			<a href="https://www.linkedin.com/in/diogodca">LinkedIn</a>
+			<a href="https://github.com/diogocorrea">GitHub</a>
+		</nav>
 	</header>
-	<footer>
-		<a href="https://www.linkedin.com/in/diogodca">LinkedIn</a>
-		<a href="https://github.com/diogocorrea">GitHub</a>
-	</footer>
+	<main>
+		<h1>Hello, I'm Diogo Corrêa.</h2>
+		<p>I'm a Frontend Software Development Lead with 15 years of experience building high-quality React applications across various industries. I champion user-centricity, continuous learning, and leverage best practices to deliver performant, maintainable, and client-aligned solutions.</p>
+	</main>
 	<script>
-		window.requestAnimationFrame(() => {
-			document.body.classList.add("visible")
-		});
 		if ("serviceWorker" in navigator) {
 			navigator.serviceWorker.register("/sw.js")
 		}
