@@ -1,4 +1,4 @@
-const CACHE = "diogocorrea_v31";
+const CACHE = "diogocorrea_v32";
 
 self.addEventListener("install", (event) => {
 	caches.keys().then((names) => {
@@ -11,14 +11,7 @@ self.addEventListener("install", (event) => {
 	event.waitUntil(
 		caches
 			.open(CACHE)
-			.then((cache) =>
-				cache.addAll([
-					"/",
-					"/index.html",
-					"/montserrat.woff2",
-					"/bg.svg",
-				])
-			)
+			.then((cache) => cache.addAll(["/", "/index.html", "/bg.svg"]))
 	);
 });
 
