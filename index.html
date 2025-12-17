@@ -1,142 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Diogo Corrêa - Senior Software Engineer | Tech Lead</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta
-		name="description"
-		content="Diogo Corrêa | Frontend Software Development Lead"
-	/>
-	<meta name="theme-color" content="#EFF0EB" />
-	<link rel="shortcut icon" href="/favicon.svg" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="preconnect" href="https://www.google-analytics.com" />
-	<link rel="canonical" href="https://diogocorrea.dev" />
-	<meta
-		name="google-site-verification"
-		content="1bjW38il6yTTdyNunoA8PTLAqocl6qdjWTGBdHyBMxQ"
-	/>
-	<style>
-		@font-face {
-			font-family: "Work Sans";
-			font-style: normal;
-			font-weight: 600;
-			font-display: swap;
-			src: url("https://fonts.gstatic.com/s/worksans/v19/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K5fQBi8JoI3ZKyHaQQ.woff")
-				format("woff");
-		}
-		@font-face {
-			font-family: "Work Sans";
-			font-style: normal;
-			font-weight: 400;
-			font-display: swap;
-			src: url("https://fonts.gstatic.com/s/worksans/v19/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBi8JoI3ZKyHaQQ.woff")
-				format("woff");
-		}
-		html {
-			font-family: "Work Sans", sans-serif;
-			font-optical-sizing: auto;
-			font-weight: 400;
-			font-style: normal;
-			background: #eff0eb;
-			color: #1a1c20;
-			-webkit-font-smoothing: antialiased;
-			font-smoothing: antialiased;
-		}
-		body {
-			height: 100vh;
-			height: 100dvh;
-			margin: 0;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-		}
-		header {
-			padding: 50px;
-		}
-		img {
-			display: block;
-			width: 250px;
-			height: 250px;
-			margin: -20px auto 30px;
-		}
-		nav {
-			text-align: center;
-		}
-		a {
-			font-size: 16px;
-			text-decoration: underline;
-			padding: 15px;
-			color: #2d474f;
-		}
-		main {
-			padding: 50px;
-			margin: 0 auto;
-			max-width: 1000px;
-		}
-		h1 {
-			font-size: 42px;
-			font-weight: 600;
-			line-height: 1.2;
-			margin: 0;
-			letter-spacing: -0.5px;
-			text-wrap: balance;
-		}
-		p {
-			font-size: 20px;
-			line-height: 1.5;
-			margin: 1em 0 0;
-			text-wrap: pretty;
-		}
-		@media screen and (prefers-color-scheme: dark) {
+	<head>
+		<title>Diogo Corrêa - Senior Software Engineer | Tech Lead</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Diogo Corrêa | Frontend Software Development Lead"
+		/>
+		<meta name="theme-color" content="#EFF0EB" />
+		<link rel="shortcut icon" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://www.google-analytics.com" />
+		<link rel="canonical" href="https://diogocorrea.dev" />
+		<meta
+			name="google-site-verification"
+			content="1bjW38il6yTTdyNunoA8PTLAqocl6qdjWTGBdHyBMxQ"
+		/>
+		<style>
+			:root {
+				--bg-color: #f8fafc;
+				--text-color: #1e293b;
+				--link-color: #0284c7;
+				--link-hover: #0369a1;
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg-color: #0f172a;
+					--text-color: #f1f5f9;
+					--link-color: #38bdf8;
+					--link-hover: #7dd3fc;
+				}
+			}
+
+			@font-face {
+				font-family: "Work Sans";
+				font-style: normal;
+				font-weight: 600;
+				font-display: swap;
+				src: url("https://fonts.gstatic.com/s/worksans/v19/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K5fQBi8JoI3ZKyHaQQ.woff")
+					format("woff");
+			}
+			@font-face {
+				font-family: "Work Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url("https://fonts.gstatic.com/s/worksans/v19/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBi8JoI3ZKyHaQQ.woff")
+					format("woff");
+			}
 			html {
-				background: #1d1f21;
-				color: #eff0eb;
+				font-family: "Work Sans", sans-serif;
+				font-optical-sizing: auto;
+				font-weight: 400;
+				font-style: normal;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				-webkit-font-smoothing: antialiased;
+				font-smoothing: antialiased;
+			}
+			body {
+				height: 100vh;
+				height: 100dvh;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			header {
+				padding: 50px;
+			}
+			img {
+				display: block;
+				width: 250px;
+				height: 250px;
+				margin: -20px auto 30px;
+			}
+			nav {
+				text-align: center;
 			}
 			a {
-				color: #768aa7;
+				font-size: 16px;
+				text-decoration: underline;
+				padding: 15px;
+				color: var(--link-color);
 			}
-		}
-	</style>
-</head>
-<body>
-	<header>
-		<img alt="" src="bg.svg" width="250" height="250" />
-		<nav>
-			<a href="https://www.linkedin.com/in/diogodca">LinkedIn</a>
-			<a href="https://github.com/diogocorrea">GitHub</a>
-		</nav>
-	</header>
-	<main>
-		<h1>Hello, I'm Diogo Corrêa.</h1>
-		<p>
-			I’m a Senior Software Engineer and Tech Lead with 15 years of experience. 
-			With a deep foundation as a Frontend Specialist and a comprehensive Fullstack 
-			perspective, I bridge hands-on development with technical leadership. I focus 
-			on engineering excellence and leverage AI-assisted development to deliver 
-			pragmatic, performant, and maintainable solutions that truly center on the user.
-		</p>
-	</main>
-	<script>
-		if ("serviceWorker" in navigator) {
-			navigator.serviceWorker.register("/sw.js");
-		}
-	</script>
-	<!-- Google tag (gtag.js) -->
-	<script
-		async defer
-		src="https://www.googletagmanager.com/gtag/js?id=G-DCXK29LE1B"
-	></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag("js", new Date());
-		gtag("config", "G-DCXK29LE1B");
-		gtag("send", "pageview");
-	</script>
-</body>
+			a:hover {
+				color: var(--link-hover);
+			}
+			main {
+				padding: 50px;
+				margin: 0 auto;
+				max-width: 1000px;
+			}
+			h1 {
+				font-size: 42px;
+				font-weight: 600;
+				line-height: 1.2;
+				margin: 0;
+				letter-spacing: -0.5px;
+				text-wrap: balance;
+			}
+			p {
+				font-size: 20px;
+				line-height: 1.5;
+				margin: 1em 0 0;
+				text-wrap: pretty;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img alt="" src="bg.svg" width="250" height="250" />
+			<nav>
+				<a href="https://www.linkedin.com/in/diogodca">LinkedIn</a>
+				<a href="https://github.com/diogocorrea">GitHub</a>
+			</nav>
+		</header>
+		<main>
+			<h1>Hello, I'm Diogo Corrêa.</h1>
+			<p>
+				I’m a <strong>Senior Software Engineer and Tech Lead</strong> with 15 years of
+				experience. With a deep foundation as a Frontend Specialist and
+				a comprehensive Fullstack perspective, I bridge hands-on
+				development with technical leadership. I focus on engineering
+				excellence and leverage AI-assisted development to deliver
+				pragmatic, performant, and maintainable solutions that truly
+				center on the user.
+			</p>
+		</main>
+		<script>
+			if ("serviceWorker" in navigator) {
+				navigator.serviceWorker.register("/sw.js");
+			}
+		</script>
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			defer
+			src="https://www.googletagmanager.com/gtag/js?id=G-DCXK29LE1B"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-DCXK29LE1B");
+			gtag("send", "pageview");
+		</script>
+	</body>
 </html>

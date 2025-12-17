@@ -2,7 +2,7 @@
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#768AA7" />
-      <stop offset="50%" stop-color="#99C0B6" />
+      <stop offset="50%" stop-color="#0369a1" />
       <stop offset="100%" stop-color="#768AA7" />
     </linearGradient>
   </defs>
