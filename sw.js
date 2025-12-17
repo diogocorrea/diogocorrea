@@ -1,4 +1,4 @@
-const CACHE = "v40";
+const CACHE = "v41";
 
 self.addEventListener("install", (event) => {
 	caches.keys().then((names) => {
