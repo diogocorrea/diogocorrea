@@ -78,45 +78,11 @@
 				z-index: 1;
 				min-height: 100vh;
 				min-height: 100dvh;
-				display: grid;
-				grid-template-rows: auto 1fr;
-				padding: clamp(24px, 4vw, 48px);
-				gap: clamp(32px, 6vh, 72px);
-			}
-			.topbar {
 				display: flex;
 				align-items: center;
-				justify-content: space-between;
-				gap: 24px;
+				justify-content: center;
+				padding: clamp(24px, 4vw, 48px);
 			}
-			.mark {
-				display: inline-flex;
-				align-items: center;
-				gap: 10px;
-				font-family: var(--font-mono);
-				font-size: 12px;
-				letter-spacing: .04em;
-				color: var(--ink-mute);
-				text-transform: uppercase;
-			}
-			.mark .dot {
-				width: 6px; height: 6px;
-				border-radius: 999px;
-				background: var(--accent);
-				box-shadow: 0 0 0 4px var(--accent-soft);
-				animation: pulse calc(2.8s / var(--motion, 1)) var(--ease) infinite;
-			}
-			@keyframes pulse {
-				0%, 100% { transform: scale(1); opacity: 1; }
-				50% { transform: scale(.85); opacity: .7; }
-			}
-			.meta {
-				font-family: var(--font-mono);
-				font-size: 12px;
-				letter-spacing: .02em;
-				color: var(--ink-mute);
-			}
-			.meta span + span { margin-left: 18px; }
 			main {
 				display: grid;
 				grid-template-columns: minmax(0, 1fr);
@@ -171,6 +137,12 @@
 				0%, 100% { stroke-dashoffset: 0; }
 				50% { stroke-dashoffset: -8; }
 			}
+			.reveal {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
 			.reveal > * {
 				opacity: 0;
 				transform: translateY(8px);
@@ -181,6 +153,7 @@
 				to { opacity: 1; transform: none; }
 			}
 			.eyebrow {
+				--d: 200;
 				font-family: var(--font-mono);
 				font-size: 12px;
 				letter-spacing: .12em;
@@ -198,6 +171,7 @@
 				background: var(--rule);
 			}
 			h1 {
+				--d: 300;
 				font-family: var(--font-display);
 				font-weight: var(--display-weight);
 				font-size: clamp(40px, 6.4vw, 72px);
@@ -210,6 +184,7 @@
 			}
 			h1 .accent { color: var(--accent); }
 			.bio {
+				--d: 460;
 				font-size: clamp(16px, 1.25vw, 18px);
 				line-height: 1.55;
 				color: var(--ink-soft);
@@ -223,6 +198,7 @@
 				font-weight: 600;
 			}
 			.links {
+				--d: 620;
 				display: inline-flex;
 				gap: 8px;
 				margin-top: clamp(28px, 4vh, 44px);
@@ -295,16 +271,6 @@
 		<div class="grid-hint" aria-hidden="true"></div>
 
 		<div class="stage">
-			<div class="topbar reveal">
-				<span class="mark" style="--d:0">
-					<span class="dot"></span>
-					diogocorrea.dev
-				</span>
-				<span class="meta" style="--d:100">
-					<span>Brazil</span>
-				</span>
-			</div>
-
 			<main>
 				<div class="portrait-wrap" aria-hidden="true">
 					<svg class="portrait" stroke-width="5" height="250" width="250" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
@@ -323,18 +289,18 @@
 					</svg>
 				</div>
 
-				<div class="reveal" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-					<div class="eyebrow" style="--d:200">
+				<div class="reveal">
+					<div class="eyebrow">
 						<span class="rule"></span>
 						<span>Senior Software Engineer · Tech Lead</span>
 						<span class="rule"></span>
 					</div>
 
-					<h1 style="--d:300">
+					<h1>
 						Hello, I'm <span class="accent">Diogo Corrêa</span>.
 					</h1>
 
-					<p class="bio" style="--d:460">
+					<p class="bio">
 						I'm a <strong>Senior Software Engineer and Tech Lead</strong> with 15 years of
 						experience. With a deep foundation as a Frontend Specialist and
 						a comprehensive Fullstack perspective, I bridge hands-on
@@ -344,7 +310,7 @@
 						center on the user.
 					</p>
 
-					<nav class="links" style="--d:620" aria-label="External profiles">
+					<nav class="links" aria-label="External profiles">
 						<a href="https://www.linkedin.com/in/diogodca" target="_blank" rel="noopener">
 							<span class="dotaccent"></span>
 							LinkedIn
