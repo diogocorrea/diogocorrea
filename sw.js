@@ -1,4 +1,4 @@
-const CACHE = "v47";
+const CACHE = "v48";
 
 self.addEventListener("install", (event) => {
 	caches.keys().then((names) => {
@@ -11,7 +11,7 @@ self.addEventListener("install", (event) => {
 	event.waitUntil(
 		caches
 			.open(CACHE)
-			.then((cache) => cache.addAll(["/", "/index.html", "/bg.svg"]))
+			.then((cache) => cache.addAll(["/", "/index.html"]))
 	);
 });
 
