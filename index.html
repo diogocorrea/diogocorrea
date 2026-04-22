@@ -98,7 +98,6 @@
 				width: clamp(140px, 18vw, 200px);
 				aspect-ratio: 1;
 				margin-bottom: clamp(28px, 5vh, 48px);
-				cursor: pointer;
 			}
 			.portrait-wrap::after {
 				content: "";
@@ -107,7 +106,8 @@
 				border-radius: 50%;
 				background: radial-gradient(closest-side, var(--accent-soft), transparent 70%);
 				opacity: 0;
-				transition: opacity .6s var(--ease);
+				animation: glowIn .6s var(--ease) forwards;
+				animation-delay: 1s;
 				z-index: -1;
 			}
 			.portrait {
@@ -117,7 +117,9 @@
 				fill: none;
 				stroke-linecap: round;
 				stroke-linejoin: round;
-				transition: stroke .5s var(--ease), transform .6s var(--ease);
+				transition: transform .6s var(--ease);
+				animation: strokeAccent .5s var(--ease) forwards;
+				animation-delay: 1s;
 			}
 			.portrait path {
 				stroke-dasharray: var(--len, 2000);
@@ -128,16 +130,13 @@
 			@keyframes draw {
 				to { stroke-dashoffset: 0; }
 			}
-			.portrait-wrap:hover .portrait { stroke: var(--accent); }
-			.portrait-wrap:hover .portrait path {
-				animation: drift calc(2.4s / var(--motion, 1)) var(--ease) infinite;
+			@keyframes glowIn {
+				to { opacity: 1; }
 			}
-			.portrait-wrap:hover::after { opacity: 1; }
-			@keyframes drift {
-				0%, 100% { stroke-dashoffset: 0; }
-				50% { stroke-dashoffset: -8; }
+			@keyframes strokeAccent {
+				to { stroke: var(--accent); }
 			}
-			.reveal {
+.reveal {
 				width: 100%;
 				display: flex;
 				flex-direction: column;
@@ -264,6 +263,8 @@
 					transition-duration: 0.01ms !important;
 				}
 				.portrait path { stroke-dashoffset: 0; }
+				.portrait-wrap::after,
+				.portrait { animation-delay: 0ms !important; }
 			}
 		</style>
 	</head>
