@@ -7,7 +7,7 @@
       .strokes { stroke: #a78bfa; }
     }
   </style>
-  <rect class="bg" width="1000" height="1000"/>
+  <rect class="bg" width="1000" height="1000" rx="120"/>
   <g class="strokes" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
     <path d="m704 499 8 65m-249-31-14 23-27 13m131-37 26 25h45m-130 98 4-9h2v5l-2 7 2 8h4l2 4-2 7h-6l-4-5 1-6zm38 1-4-8-2 4 2 6v3l-2 4-4 2v7l6 2 4-4z"/>
     <path d="m476 634 13 6 11 8m144-420 62-15 60 39 11 81m-279-110-59-28-77 16-67 44-56 115m351-151-19-57-71-28-90 15"/>
