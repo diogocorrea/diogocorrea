@@ -12,16 +12,6 @@
 
 <br/>
 
-<a href="https://www.linkedin.com/in/diogodca">
-  <img src="https://img.shields.io/badge/LinkedIn-%236B5EE8?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
-</a>
-&nbsp;
-<a href="https://github.com/diogocorrea">
-  <img src="https://img.shields.io/badge/GitHub-%236B5EE8?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
-</a>
-&nbsp;
-<a href="https://diogocorrea.dev">
-  <img src="https://img.shields.io/badge/diogocorrea.dev-%236B5EE8?style=flat-square&logoColor=white" alt="Website" />
-</a>
+<a href="https://www.linkedin.com/in/diogodca">LinkedIn</a> &middot; <a href="https://diogocorrea.dev">diogocorrea.dev</a>
 
 </div>
