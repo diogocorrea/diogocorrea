@@ -53,6 +53,16 @@
 			}
 			@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 			@keyframes riseIn { to { opacity: 1; transform: none; } }
+			@keyframes taskLoad {
+				0%   { content: "⠋"; color: var(--comment); }
+				14%  { content: "⠙"; }
+				28%  { content: "⠹"; }
+				42%  { content: "⠸"; }
+				56%  { content: "⠼"; }
+				70%  { content: "⠴"; }
+				84%  { content: "✓"; color: var(--green); }
+				100% { content: "✓"; color: var(--green); }
+			}
 
 			.titlebar {
 				display: grid;
@@ -125,10 +135,17 @@
 				transform: translateY(6px);
 				animation: riseIn .5s var(--ease) forwards;
 			}
-			.task:nth-child(1) { animation-delay: .05s; }
-			.task:nth-child(2) { animation-delay: .2s; }
-			.task:nth-child(3) { animation-delay: .35s; color: var(--fg); }
-			.task::before { content: "✓"; color: var(--green); }
+			.task:nth-child(1) { animation-delay: .1s; }
+			.task:nth-child(2) { animation-delay: .6s; }
+			.task:nth-child(3) { animation-delay: 1.1s; color: var(--fg); }
+			.task::before {
+				content: "⠋";
+				color: var(--comment);
+				animation: taskLoad .5s steps(1) forwards;
+			}
+			.task:nth-child(1)::before { animation-delay: .1s; }
+			.task:nth-child(2)::before { animation-delay: .6s; }
+			.task:nth-child(3)::before { animation-delay: 1.1s; }
 			.task:nth-child(1)::after { content: "Reading profile"; }
 			.task:nth-child(2)::after { content: "Drafting introduction"; }
 			.task:nth-child(3)::after { content: "Ready"; }
@@ -149,7 +166,7 @@
 				align-items: baseline;
 				gap: 12px;
 				margin: 0;
-				animation-delay: .5s;
+				animation-delay: 2s;
 				color: var(--comment);
 				font-size: clamp(14px, 2vw, 16px);
 				font-style: italic;
@@ -161,11 +178,11 @@
 				font-style: normal;
 			}
 
-			h1 {
+			.content > h1 {
 				display: flex;
 				align-items: baseline;
 				gap: clamp(10px, 2vw, 16px);
-				animation-delay: .62s;
+				animation-delay: 2.15s;
 				margin: 0;
 				font-family: var(--font-mono);
 				font-weight: 700;
@@ -184,7 +201,7 @@
 			}
 
 			.bio {
-				animation-delay: .74s;
+				animation-delay: 2.3s;
 				margin: 0;
 				font-weight: 400;
 				font-size: clamp(15px, 1.8vw, 18px);
@@ -209,7 +226,7 @@
 			}
 
 			.prompt-block {
-				animation-delay: .88s;
+				animation-delay: 3.2s;
 				display: flex;
 				flex-direction: column;
 				gap: 12px;
