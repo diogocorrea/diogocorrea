@@ -78,13 +78,15 @@
 				overflow: hidden;
 				text-overflow: ellipsis;
 			}
+			.titlebar-label::before { content: "diogo — agent session"; }
 			.status {
 				display: flex;
 				align-items: center;
 				justify-content: flex-end;
 				gap: 8px;
 			}
-			.status-dot {
+			.status::before {
+				content: "";
 				width: 6px; height: 6px;
 				border-radius: 999px;
 				background: var(--green);
@@ -92,7 +94,7 @@
 				flex-shrink: 0;
 				animation: pulse 1.6s ease-in-out infinite;
 			}
-			.status span:last-child { font-size: 12px; color: var(--fg); opacity: 0.5; }
+			.status::after { content: "active"; font-size: 12px; color: var(--fg); opacity: 0.5; }
 
 			.session {
 				flex-grow: 1;
@@ -126,7 +128,10 @@
 			.task:nth-child(1) { animation-delay: .05s; }
 			.task:nth-child(2) { animation-delay: .2s; }
 			.task:nth-child(3) { animation-delay: .35s; color: var(--fg); }
-			.task .check { color: var(--green); }
+			.task::before { content: "✓"; color: var(--green); }
+			.task:nth-child(1)::after { content: "Reading profile"; }
+			.task:nth-child(2)::after { content: "Drafting introduction"; }
+			.task:nth-child(3)::after { content: "Ready"; }
 
 			.content {
 				display: flex;
@@ -139,16 +144,28 @@
 				transform: translateY(6px);
 				animation: riseIn .6s var(--ease) forwards;
 			}
-			.md-line { display: flex; align-items: baseline; gap: 12px; }
-			.md-mark { color: var(--comment); font-weight: 700; }
+			.subtitle {
+				display: flex;
+				align-items: baseline;
+				gap: 12px;
+				margin: 0;
+				animation-delay: .5s;
+				color: var(--comment);
+				font-size: clamp(14px, 2vw, 16px);
+				font-style: italic;
+			}
+			.subtitle::before {
+				content: "##";
+				color: var(--comment);
+				font-weight: 700;
+				font-style: normal;
+			}
 
-			.subtitle-line { animation-delay: .5s; gap: 12px; }
-			.subtitle-line .md-mark { font-size: clamp(14px, 2vw, 16px); }
-			.subtitle { color: var(--comment); font-size: clamp(14px, 2vw, 16px); font-style: italic; }
-
-			.heading-line { animation-delay: .62s; gap: clamp(10px, 2vw, 16px); }
-			.heading-mark { font-size: clamp(20px, 4.4vw, 34px); line-height: 1; }
 			h1 {
+				display: flex;
+				align-items: baseline;
+				gap: clamp(10px, 2vw, 16px);
+				animation-delay: .62s;
 				margin: 0;
 				font-family: var(--font-mono);
 				font-weight: 700;
@@ -157,6 +174,13 @@
 				letter-spacing: -0.01em;
 				color: var(--green);
 				text-wrap: balance;
+			}
+			h1::before {
+				content: "#";
+				color: var(--comment);
+				font-weight: 700;
+				font-size: clamp(20px, 4.4vw, 34px);
+				line-height: 1;
 			}
 
 			.bio {
@@ -170,6 +194,12 @@
 			}
 			.bio .kw { color: var(--yellow); }
 			.bio .num { color: var(--orange); font-weight: 600; }
+			.bio .kw::before, .bio .kw::after,
+			.bio .num::before, .bio .num::after {
+				content: "**";
+				color: var(--comment);
+				font-weight: 700;
+			}
 			.bio .pill {
 				font-family: var(--font-mono);
 				color: var(--purple);
@@ -189,10 +219,11 @@
 				display: flex;
 				align-items: baseline;
 				gap: 10px;
+				margin: 0;
 				font-size: clamp(15px, 1.8vw, 18px);
+				color: var(--fg);
 			}
-			.q-mark { color: var(--green)}
-			.prompt-q span:last-child { color: var(--fg) }
+			.prompt-q::before { content: "?"; color: var(--green); font-weight: 700; }
 
 			.contact-list {
 				display: flex;
@@ -217,7 +248,8 @@
 				font-weight: 400;
 				transition: color .2s var(--ease), background-color .2s var(--ease);
 			}
-			.contact-list a .arrow {
+			.contact-list a::before {
+				content: "❯";
 				width: 14px;
 				flex-shrink: 0;
 				opacity: 0;
@@ -231,9 +263,9 @@
 				background-color: var(--cyan-soft);
 				outline: none;
 			}
-			.contact-list a.selected .arrow,
-			.contact-list a:hover .arrow,
-			.contact-list a:focus-visible .arrow {
+			.contact-list a.selected::before,
+			.contact-list a:hover::before,
+			.contact-list a:focus-visible::before {
 				opacity: 1;
 			}
 
@@ -248,54 +280,38 @@
 	</head>
 	<body>
 		<div class="app">
-			<header class="titlebar">
+			<header class="titlebar" aria-hidden="true">
 				<div class="traffic">
 					<span class="dot dot-red"></span>
 					<span class="dot dot-yellow"></span>
 					<span class="dot dot-green"></span>
 				</div>
-				<div class="titlebar-label">diogo — agent session</div>
-				<div class="status">
-					<span class="status-dot" aria-hidden="true"></span>
-					<span>active</span>
-				</div>
+				<div class="titlebar-label"></div>
+				<div class="status"></div>
 			</header>
 
 			<main class="session">
 				<div class="session-inner">
 					<div class="tasklist" aria-hidden="true">
-						<div class="task"><span class="check">✓</span> Reading profile</div>
-						<div class="task"><span class="check">✓</span> Drafting introduction</div>
-						<div class="task"><span class="check">✓</span> Ready</div>
+						<div class="task"></div>
+						<div class="task"></div>
+						<div class="task"></div>
 					</div>
 
 					<div class="content">
-						<div class="md-line subtitle-line">
-							<span class="md-mark" aria-hidden="true">##</span>
-							<span class="subtitle">Senior Software Engineer · Tech Lead</span>
-						</div>
+						<p class="subtitle">Senior Software Engineer · Tech Lead</p>
 
-						<div class="md-line heading-line">
-							<span class="md-mark heading-mark" aria-hidden="true">#</span>
-							<h1>Hello, I’m Diogo Corrêa.</h1>
-						</div>
+						<h1 aria-label="Hello, I’m Diogo Corrêa.">Hello, I’m Diogo Corrêa.</h1>
 
 						<p class="bio">
-							I’m a <span class="md-mark">**</span><span class="kw">Senior Software Engineer</span><span class="md-mark">**</span> and <span class="md-mark">**</span><span class="kw">Tech Lead</span><span class="md-mark">**</span> with <span class="md-mark">**</span><span class="num">15</span><span class="md-mark">**</span> years of experience building for the web, specializing in frontend with a functional full-stack fluency. Working alongside great teams, I help plan, build, and scale applications that deliver clear business impact and feel natural to the user, balancing technical rigor with an efficient, <span class="pill">AI-assisted workflow</span>.
+							I’m a <span class="kw">Senior Software Engineer</span> and <span class="kw">Tech Lead</span> with <span class="num">15</span> years of experience building for the web, specializing in frontend with a functional full-stack fluency. Working alongside great teams, I help plan, build, and scale applications that deliver clear business impact and feel natural to the user, balancing technical rigor with an efficient, <span class="pill">AI-assisted workflow</span>.
 						</p>
 
 						<div class="prompt-block">
-							<div class="prompt-q">
-								<span class="q-mark" aria-hidden="true">?</span>
-								<span>Which contact should I open?</span>
-							</div>
+							<p class="prompt-q" aria-label="Which contact should I open?">Which contact should I open?</p>
 							<nav class="contact-list" aria-label="External profiles">
-								<a href="https://www.linkedin.com/in/diogodca" target="_blank" rel="noopener">
-									<span class="arrow" aria-hidden="true">❯</span>LinkedIn
-								</a>
-								<a href="https://github.com/diogocorrea" target="_blank" rel="noopener">
-									<span class="arrow" aria-hidden="true">❯</span>GitHub
-								</a>
+								<a href="https://www.linkedin.com/in/diogodca" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+								<a href="https://github.com/diogocorrea" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
 							</nav>
 						</div>
 					</div>
