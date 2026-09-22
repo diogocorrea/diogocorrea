@@ -53,6 +53,7 @@
 			}
 			@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 			@keyframes riseIn { to { opacity: 1; transform: none; } }
+			@keyframes fadeIn { to { opacity: 1; } }
 			@keyframes taskLoad {
 				0%   { content: "⠋"; color: var(--comment); }
 				14%  { content: "⠙"; }
@@ -226,6 +227,28 @@
 				padding: 2px 7px;
 				border-radius: 5px;
 			}
+			.bio.split { opacity: 1; animation: none; transform: none; }
+			.bio.split .word {
+				display: inline-block;
+				opacity: 0;
+				animation: fadeIn .22s ease-out forwards;
+				animation-delay: calc(2.3s + var(--d, 0ms));
+			}
+			.bio.split .pill {
+				opacity: 0;
+				animation: fadeIn .22s ease-out forwards;
+				animation-delay: calc(2.3s + var(--d, 0ms));
+			}
+			.bio.split .kw::before, .bio.split .num::before {
+				opacity: 0;
+				animation: fadeIn .18s ease-out forwards;
+				animation-delay: calc(2.3s + var(--d, 0ms));
+			}
+			.bio.split .kw::after, .bio.split .num::after {
+				opacity: 0;
+				animation: fadeIn .18s ease-out forwards;
+				animation-delay: calc(2.3s + var(--d-end, 0ms) + 45ms);
+			}
 
 			.prompt-block {
 				animation-delay: 3s;
@@ -291,6 +314,7 @@
 			@media (prefers-reduced-motion: reduce) {
 				*, *::before, *::after {
 					animation-duration: 0.01ms !important;
+					animation-delay: 0s !important;
 					animation-iteration-count: 1 !important;
 					transition-duration: 0.01ms !important;
 				}
@@ -322,7 +346,7 @@
 
 						<h1 aria-label="Hello, I’m Diogo Corrêa.">Hello, I’m Diogo Corrêa.</h1>
 
-						<p class="bio">
+						<p class="bio" aria-label="I’m a Senior Software Engineer and Tech Lead with 15 years of experience building for the web, specializing in frontend with a functional full-stack fluency. Working alongside great teams, I help plan, build, and scale applications that deliver clear business impact and feel natural to the user, balancing technical rigor with an efficient, AI-assisted workflow.">
 							I’m a <span class="kw">Senior Software Engineer</span> and <span class="kw">Tech Lead</span> with <span class="num">15</span> years of experience building for the web, specializing in frontend with a functional full-stack fluency. Working alongside great teams, I help plan, build, and scale applications that deliver clear business impact and feel natural to the user, balancing technical rigor with an efficient, <span class="pill">AI-assisted workflow</span>.
 						</p>
 
@@ -367,6 +391,58 @@
 						links[idx].focus();
 					}
 				});
+			})();
+		</script>
+		<script>
+			(function () {
+				const bio = document.querySelector('.bio');
+				const promptBlock = document.querySelector('.prompt-block');
+				if (!bio || !promptBlock) return;
+				if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+				const BASE_DELAY = 2.3;
+				const WORD_STEP_MIN = 35;
+				const WORD_STEP_MAX = 60;
+				const WORD_DURATION = 0.22;
+
+				let cursor = 0;
+				function wrapWords(el) {
+					let start = null;
+					let end = null;
+					Array.from(el.childNodes).forEach((node) => {
+						if (node.nodeType === Node.TEXT_NODE) {
+							const frag = document.createDocumentFragment();
+							node.textContent.split(/(\s+)/).forEach((part) => {
+								if (part === '') return;
+								if (/^\s+$/.test(part)) {
+									frag.appendChild(document.createTextNode(part));
+									return;
+								}
+								const span = document.createElement('span');
+								span.className = 'word';
+								span.textContent = part;
+								const d = cursor;
+								span.style.setProperty('--d', d + 'ms');
+								if (start === null) start = d;
+								end = d;
+								cursor += WORD_STEP_MIN + Math.random() * (WORD_STEP_MAX - WORD_STEP_MIN);
+								frag.appendChild(span);
+							});
+							node.replaceWith(frag);
+						} else if (node.nodeType === Node.ELEMENT_NODE) {
+							const [childStart, childEnd] = wrapWords(node);
+							if (start === null) start = childStart;
+							end = childEnd;
+						}
+					});
+					el.style.setProperty('--d', (start ?? 0) + 'ms');
+					el.style.setProperty('--d-end', (end ?? 0) + 'ms');
+					return [start, end];
+				}
+				wrapWords(bio);
+				bio.classList.add('split');
+
+				promptBlock.style.animationDelay = (BASE_DELAY + cursor / 1000 + WORD_DURATION + 0.1) + 's';
 			})();
 		</script>
 		<script>
