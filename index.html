@@ -67,8 +67,8 @@
 				100% { content: "✓"; color: var(--green); }
 			}
 			@keyframes taskTextColor {
-				0%, 83%  { color: var(--fg); }
-				84%, 100% { color: var(--comment); }
+				0%, 74%  { color: var(--fg); }
+				94%, 100% { color: var(--comment); }
 			}
 
 			.titlebar {
@@ -179,7 +179,7 @@
 				font-size: clamp(15px, 1.8vw, 18px);
 				opacity: 0;
 				transform: translateY(6px);
-				animation: riseIn .5s var(--ease) forwards, taskTextColor .5s steps(1) forwards;
+				animation: riseIn .5s var(--ease) forwards, taskTextColor .5s ease forwards;
 			}
 			.task:nth-child(1) { animation-delay: .1s; }
 			.task:nth-child(2) { animation-delay: .6s; }
